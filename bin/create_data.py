@@ -46,15 +46,3 @@ def create(texts):
     with io.open('../data.json', 'w', encoding='utf-8') as f:
         print(all_pairs)
         f.write(json.dumps(all_pairs, ensure_ascii=False, indent=4))
-
-if __name__ == "__main__":
-
-    # Example text
-    texts = [
-        "Injection moulding uses a ram or screw-type plunger to force molten plastic or rubber material into a mould cavity;",
-        "In 1846 the British inventor Charles Hancock, a relative of Thomas Hancock, patented an injection molding machine",
-        "The German chemists Arthur Eichengrün and Theodore Becker invented the first soluble forms of cellulose acetate in 1903"
-    ]
-    
-    create(texts)
-    logger.info('starting finetuning data creation..')
