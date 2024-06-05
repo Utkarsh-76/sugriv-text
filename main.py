@@ -17,7 +17,7 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 from src.api.controller.llm import generate_top_k_results
 from src.api.vo.llm_request import LLMRequest, PretrainRequest
-from bin.create_data import create
+from bin.create_data import create,write
 from bin.fine_tune import Finetuner
 from dotenv import load_dotenv
 from llama_index.embeddings.openai import OpenAIEmbedding
@@ -229,6 +229,7 @@ async def create_finetuning_dataset(request:FinetuneRequest):
     try:
         logger.info('creating dataset for finetuning')
         create(request.texts)
+        write('data.json')
         return JSONResponse(content={"result": "success"},status_code=200)
     except Exception as e:
         logger.error(f'can not finetune LLM for text {request.texts}')

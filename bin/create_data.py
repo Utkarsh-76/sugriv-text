@@ -1,5 +1,7 @@
 import os
 import sys
+
+from fastapi import Path
 sys.path.append(os.path.join(os.path.dirname(__file__),'../'))
 
 import json
@@ -43,5 +45,7 @@ def create(texts):
         print(text)
 
 # Save to JSON file
-with io.open('../data.json', 'w', encoding='utf-8') as f:
-    f.write(json.dumps(all_pairs, ensure_ascii=False, indent=4))
+def write(file_location):
+    if not os.path.exists(file_location):
+        with io.open(file_location, 'w', encoding='utf-8') as f:
+            f.write(json.dumps(all_pairs, ensure_ascii=False, indent=4))

@@ -23,7 +23,7 @@ model = sugriv.get_model()
 text_loader = TextLoader()
 
 # Load the dataset
-with open('data.json', 'r') as f:
+with open('../data.json', 'r') as f:
     dataset = json.load(f)
 
 # Tokenize the dataset
