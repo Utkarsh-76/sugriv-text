@@ -163,6 +163,7 @@ async def create_documents_graph(file:FileRequest):
         logger.error(f'can not index file {file.name}')
         logger.error(e)
 
+# feed data to graph rag
 @app.post("/feed")
 async def feed(request:LLMRequest):
     ''' gets the related documents for the given prompt and then 
@@ -198,6 +199,7 @@ async def feed(request:LLMRequest):
         logger.error(f'can not index file {request.prompt}')
         logger.error(e)
 
+# pretrain the LLM
 @app.post("/pretrain")
 def pretrain(request:PretrainRequest):
     ''' pretrain llm '''
@@ -209,7 +211,7 @@ def pretrain(request:PretrainRequest):
         logger.error(f'can not pretrain LLM for text file {request.text}')
         logger.error(e)
 
-# todo: add endpoint to finetune
+# finetune th text
 @app.post("/finetune")
 async def finetune():
     '''finetune on generated data'''
