@@ -1,6 +1,6 @@
 
 import os
-from llm.heads.text_classification_head import TextClassificationModel
+from src.llm.heads.text_classification_head import TextClassificationModel
 from src.llm.heads.next_token_prediciton_head import NextTokenPredictionModel
 from transformers import PreTrainedModel
 from dotenv import load_dotenv
