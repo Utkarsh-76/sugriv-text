@@ -2,7 +2,7 @@
 ![image](https://github.com/monkeypatched-iot/sugriv-text/assets/128947637/57ec7c88-e575-44b5-b0e3-2fcf8be61304)
 
 
-Software Defined Automation platform to enable expert systems use. AI does this by acquiring relevant knowledge from its knowledge base and interpreting it according to the user’s problem. The data in the knowledge base is added by humans who are experts in a particular domain and this software is used by a non-expert user to acquire some information. it provides a modular software system that enables sharing and interoperability between multiple fleets of robots and physical infrastructure, like doors, elevators, and building management systems, and enables seamless integration with its environment using 
+Software Defined Automation platform to enable expert systems use via LLM Agents. Monkeybrain does this by acquiring relevant knowledge from its knowledge base and interpreting it according to the user’s problem. The data in the knowledge base is added by humans who are experts in a particular domain and this software is used by a non-expert user to acquire some information. it provides a modular software system that enables sharing and interoperability between multiple fleets of robots and physical infrastructure, like doors, elevators, and building management systems, and enables seamless integration with its environment using 
 
 Software-Defined:
 
