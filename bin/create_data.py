@@ -42,7 +42,6 @@ def create(texts):
         all_pairs.extend(pairs)
         print(text)
 
-    # Save to JSON file
-    with io.open('../data.json', 'w', encoding='utf-8') as f:
-        print(all_pairs)
-        f.write(json.dumps(all_pairs, ensure_ascii=False, indent=4))
+# Save to JSON file
+with io.open('../data.json', 'w', encoding='utf-8') as f:
+    f.write(json.dumps(all_pairs, ensure_ascii=False, indent=4))
