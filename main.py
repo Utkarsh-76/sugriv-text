@@ -200,6 +200,7 @@ async def feed(request:LLMRequest):
 
 @app.post("/pretrain")
 def pretrain(request:PretrainRequest):
+    ''' pretrain llm '''
     try:
         logger.info(request.text)
         sugriv.pretrain_text(request.text)
@@ -222,6 +223,7 @@ async def finetune():
 
 @app.post("/create_dataset")
 async def create_finetuning_dataset(request:FinetuneRequest):
+    ''' create dataset fror finetuning next token prediction '''
     try:
         logger.info('creating dataset for finetuning')
         create(request.texts)
@@ -234,8 +236,6 @@ async def create_finetuning_dataset(request:FinetuneRequest):
 @app.post("/search")
 async def search(request:LLMRequest):
     ''' generates the top k results using a greedy sampling methodology '''
-    # todo: save the prompt in session
-
     try:
         logger.info('getting the top k completions')
         return generate_top_k_results(request)
