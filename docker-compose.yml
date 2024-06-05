@@ -1,0 +1,108 @@
+version: "3.8"
+
+services:
+  sugriv-t:
+    build:
+      context: .
+    container_name: sugriv-t
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+
+  redis:
+    image: redis/redis-stack-server:latest
+    container_name: redis
+    ports:
+      - '6379:6379'
+    networks:
+      - db_network
+    env_file:
+      - .env
+
+  qdrant:
+    container_name: qdrant
+    image: qdrant/qdrant:v1.7.3
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    restart: on-failure
+    networks:
+      - db_network
+    env_file:
+      - .env
+    volumes:
+      - ./data/qdrant_storage:/qdrant/storage
+
+  postgres:
+    container_name: postgres
+    image: postgres:13.2
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${POSTGRESQL_DB}
+      POSTGRES_USER: ${POSTGRESQL_USER}
+      POSTGRES_PASSWORD: ${POSTGRESQL_PASS}
+    networks:
+      - db_network
+
+  neo4j:
+    container_name: neo4j
+    image: neo4j:latest
+    networks:
+      - neo4j_network
+    environment:
+      NEO4J_AUTH: none
+    ports:
+      - '7474:7474'
+      - '7473:7473'
+      - '7687:7687'
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.3.2
+    hostname: zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_SERVER_ID: 1
+      ZOOKEEPER_SERVERS: zoo1:2888:3888
+    networks:
+      - app_network
+
+  kafka:
+    image: confluentinc/cp-kafka:7.3.2
+    hostname: kafka
+    container_name: kafka
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+      - "9999:9999"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:19092,EXTERNAL://${DOCKER_HOST_IP:-127.0.0.1}:9092,DOCKER://host.docker.internal:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,DOCKER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
+      KAFKA_BROKER_ID: 1
+      KAFKA_LOG4J_LOGGERS: "kafka.controller=INFO,kafka.producer.async.DefaultEventHandler=INFO,state.change.logger=INFO"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_JMX_PORT: 9999
+      KAFKA_JMX_HOSTNAME: ${DOCKER_HOST_IP:-127.0.0.1}
+      KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
+      KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
+    depends_on:
+      - zookeeper
+    networks:
+      - app_network
+
+networks:
+  db_network:
+    driver: bridge
+  app_network:
+    driver: bridge
+  neo4j_network:
+    driver: bridge
