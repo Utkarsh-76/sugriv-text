@@ -1,14 +1,16 @@
-## starting a python venv
 
-### 1. install a venv
+![image](https://github.com/monkeypatched-iot/sugriv-text/assets/128947637/57ec7c88-e575-44b5-b0e3-2fcf8be61304)
 
-```python -m venv venv```
 
-### 2. initate the venv
+Software Defined Automation platform to enable expert systems use via LLM Agents. Monkeybrain does this by acquiring relevant knowledge from its knowledge base and interpreting it according to the user’s problem. The data in the knowledge base is added by humans who are experts in a particular domain and this software is used by a non-expert user to acquire some information. it provides a modular software system that enables sharing and interoperability between multiple fleets of robots and physical infrastructure, like doors, elevators, and building management systems, and enables seamless integration with its environment using 
 
-```venv\Scripts\activate```
+Software-Defined:
 
-### 3. install the requirements.txt 
+"Software-defined" generally refers to an approach where the functionality of a system is controlled and managed by software rather than being hard-coded or dependent on physical hardware. This concept is commonly associated with software-defined networking (SDN), where network management is done through software applications rather than the traditional approach of configuring hardware devices.
 
-```pip install -r reuirements.txt```
+Automation:
+
+Automation involves the use of technology to perform tasks or processes with minimal human intervention. This can include the automation of repetitive tasks, workflows, or even complex business processes.
+
+Monkey Mind provides a higher level of abstraction than the SDK enabling robot fleets to communicate with each other and its environment when planning missions or scheduling and executing tasks and provides tools, libraries and APIs that enable 
 
