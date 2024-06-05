@@ -18,3 +18,14 @@ Monkey Mind provides a higher level of abstraction than the SDK enabling robot f
 
 ![image](https://github.com/monkeypatched-iot/sugriv-text/assets/128947637/9769dcb0-72e4-4a80-9ecc-21a2b26e2486)
 
+How to Contribute
+We are thrilled that you are interested in contributing to our project! Your contributions, whether big or small, are valuable to us. Follow these steps to get started:
+
+* Table of Contents
+* Getting Started
+* Reporting Issues
+* Submitting Code
+* Improving Documentation
+* Style Guides
+* Code of Conduct
+
