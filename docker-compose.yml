@@ -34,19 +34,6 @@ services:
     volumes:
       - ./data/qdrant_storage:/qdrant/storage
 
-  postgres:
-    container_name: postgres
-    image: postgres:13.2
-    restart: unless-stopped
-    env_file:
-      - .env
-    environment:
-      POSTGRES_DB: ${POSTGRESQL_DB}
-      POSTGRES_USER: ${POSTGRESQL_USER}
-      POSTGRES_PASSWORD: ${POSTGRESQL_PASS}
-    networks:
-      - db_network
-
   neo4j:
     container_name: neo4j
     image: neo4j:latest
