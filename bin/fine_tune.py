@@ -19,7 +19,7 @@ from transformers import TrainingArguments
 # Load environment variables from .env file
 load_dotenv()
 
-model = sugriv.get_model()
+sugriv = sugriv.get_model()
 text_loader = TextLoader()
 
 # Load the dataset
@@ -64,10 +64,9 @@ NUMBER_OF_EPOCHS = int(os.getenv("NUMBER_OF_EPOCHS"))
 training_args = TrainingArguments(
     output_dir="./results",
     num_train_epochs=3,
-    per_device_train_batch_size=10,
+    per_device_train_batch_size=100,
     logging_dir='./logs',
 )
-
 
 class Finetuner():
     def __init__(self) -> None:
@@ -84,6 +83,7 @@ class Finetuner():
         For a next token generation task, where you want to predict the next token in a sequence given the previous tokens,
         you typically generate labels by shifting the input sequence by one token.Shift the input tokens by 1 position to the right
         '''
+
 
         # Compute the number of training steps
         num_training_steps = len(self.dataloader) * training_args.num_train_epochs
@@ -134,3 +134,5 @@ class Finetuner():
         average.append(avg_loss)
         logger.info({"loss": avg_loss})
 
+
+Finetuner().finetune()

@@ -6,7 +6,7 @@ class DecoderLayer(nn.Module):
     """
     Transformer decoder layer.
     """
-    def __init__(self, d_model=768, n_heads=1, ff_dim=10, dropout=0.1):
+    def __init__(self, d_model=768, n_heads=1, ff_dim=4, dropout=0.1):
         """
         A single Transformer decoder layer made of masked self-attention and feed-forward.
 

@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import math
+import numpy as np
 
 class MaskedMultiHeadAttention(nn.Module):
     """ Masked Multihead attention layer """
@@ -39,9 +40,7 @@ class MaskedMultiHeadAttention(nn.Module):
         # Compute attention scores
         scores = torch.matmul(Q, K.transpose(-2, -1)) / math.sqrt(self.head_dim)  # (batch_size, num_heads, query_len, key_len)
 
-        if mask is not None:
-            # Apply mask
-            scores = scores.masked_fill(~mask, float('-inf'))
+        scores = scores.masked_fill(scores == 0, -np.inf)
 
         attention_weights = F.softmax(scores, dim=-1)  # (batch_size, num_heads, query_len, key_len)
 

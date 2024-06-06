@@ -27,7 +27,7 @@ class TextPredictionModel(PreTrainedModel):
         self.text_prediction_model = NextTokenPredictionModel(PAD_INDEX,D_MODEL, MAXIMUM_SEQUENCE_LENGTH, NUMBER_OF_HEADS, NUMBER_OF_LAYERS, FEED_FORWARD_LAYER_DIMENTION, DROP_OUT_RATE,VOCABULARY_SIZE,BATCH_SIZE )
         self.text_classifiction_model = TextClassificationModel(PAD_INDEX,D_MODEL, MAXIMUM_SEQUENCE_LENGTH, NUMBER_OF_HEADS, NUMBER_OF_LAYERS, FEED_FORWARD_LAYER_DIMENTION, DROP_OUT_RATE,VOCABULARY_SIZE,BATCH_SIZE)
         
-    def forward(self, input_ids=None, attention_mask=None, pipeline=None, labels=None):
+    def forward(self, input_ids=None, attention_mask=None, labels=None ,pipeline=None ):
       # if the pipeline is text then predict the next token
       if pipeline == 'prediction':
         loss,logits= self.text_prediction_model(input_ids, attention_mask, pipeline, labels)
