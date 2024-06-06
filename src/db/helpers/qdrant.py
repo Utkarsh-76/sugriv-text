@@ -70,13 +70,20 @@ class QdrantDB():
             logger.error(f'error upserting {str(payload)} into vector database')
             logger.error(e)
 
-    def check_collection_exists(self,name):
+    def check_collection_exists(self,collection_name):
         try:       
             logger.info("check if client exists")
-            response = requests.get("http://172.18.144.1:6333/collections/{collection_name}/exists")
-            if response.status_code == 404:
-                return False
-            return True
+            if collection_name == "prompts":
+                response = requests.get("http://172.18.144.1:6333/collections/prompts/exists")
+                if response.status_code == 404:
+                    return False
+                return True
+            
+            if collection_name == "documents":
+                response = requests.get("http://172.18.144.1:6333/collections/documents/exists")
+                if response.status_code == 404:
+                    return False
+                return True
         except RuntimeError as e:
             logger.error(f'error checking if collection exists')
             logger.error(e)
