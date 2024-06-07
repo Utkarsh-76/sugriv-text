@@ -46,5 +46,4 @@ We are thrilled that you are interested in contributing to our project! Your con
 * Improving Documentation
 * Style Guides
 * Code of Conduct
-* [ Jira Board| https://monkeypatched.atlassian.net/jira/software/projects/ST/boards/3atlOrigin=eyJpIjoiYzI2OGUwN2MwY2I2NDY2YjhhM2EyMGVlMTAzYzFhNWMiLCJwIjoiaiJ9]
-
+[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
