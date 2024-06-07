@@ -46,4 +46,4 @@ We are thrilled that you are interested in contributing to our project! Your con
 * Improving Documentation
 * Style Guides
 * Code of Conduct
-![I'm an inline-style link with title](https://www.google.com "Google's Homepage")
+[I'm an inline-style link](https://www.google.com)
