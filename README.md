@@ -20,7 +20,7 @@ Monkey Mind provides a higher level of abstraction than the SDK enabling robot f
  * Graph RAG
  * Customizable Small Language Model
  * Agentic components, including routing, memory, planning and tool use
- * Distributed Data pipeline for pretraining
+ * Distributed sata pipeline for pretraining and inference 
  * RAFT Capabilities
 
 ## Roadmap
