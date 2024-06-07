@@ -17,11 +17,15 @@ Monkey mind provides a higher level of abstraction than the SDK enabling robot f
 # Features
 
 ## Current
- * Graph RAG
- * Customizable Small Language Model
- * Agentic components, including routing, memory, planning and tool use
- * Distributed data pipeline for pretraining and inference 
- * RAFT capabilities
+
+1. Graph RAG
+2. Customizable Small Language Model
+3. Agentic components, including routing, memory and tool use
+4. Distributed Data pipeline for pretraining
+5. Easy Deployment using docker compose 
+6. Lifecycle APIs and scripts for pretraing and finetuning 
+7. RAFT Capabilities
+8. Guardrails integration
 
 ## Roadmap
  * Agentic reasoning including sequential (like Chain of Thought), DAG-based, and tree-based (like Tree of Thought)
