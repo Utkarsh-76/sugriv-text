@@ -15,8 +15,13 @@ Automation involves the use of technology to perform tasks or processes with min
 Monkey Mind provides a higher level of abstraction than the SDK enabling robot fleets to communicate with each other and its environment when planning missions or scheduling and executing tasks and provides tools, libraries and APIs that enable 
 
 # Features
+
+## Current
  * Graph RAG
+ * Customizable LLM 
  * Agentic components, including routing, memory, planning and tool use
+
+## Roadmap
  * Agentic reasoning including sequential (like Chain of Thought), DAG-based, and tree-based (like Tree of Thought)
  * And we briefly cover further enterprise extensions including observability, controllability and customizability
    
