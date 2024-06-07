@@ -12,7 +12,7 @@ Monkeymind is a Software Defined Automation platform to enable expert systems us
 
 Automation involves the use of technology to perform tasks or processes with minimal human intervention. This can include the automation of repetitive tasks, workflows, or even complex business processes.
 
-Monkey Mind provides a higher level of abstraction than the SDK enabling robot fleets to communicate with each other and its environment when planning missions or scheduling and executing tasks and provides tools, libraries and APIs that enable 
+Monkey mind provides a higher level of abstraction than the SDK enabling robot fleets to communicate with each other and its environment when planning missions or scheduling and executing tasks and provides tools, libraries and APIs that enable the next generation of robots
 
 # Features
 
