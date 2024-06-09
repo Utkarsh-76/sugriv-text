@@ -45,6 +45,7 @@ Prashun Javeri, CTO Monkeypatched
 Jatin Jadhav, Senior Software Engineer ML/AI Monkeypatched
 Pooja Gandhi, Senior Software Engineer ML/AI Monkeypatched
 
+
 # How to Contribute
 
 We are thrilled that you are interested in contributing to our project! Your contributions, whether big or small, are valuable to us. Follow these steps to get started:
