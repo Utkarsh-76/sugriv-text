@@ -1,0 +1,24 @@
+# Byte-compiled / optimized Python files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+env/
+wandb/
+sugriv/*.json
+
+# IDE or editor-specific files
+.vscode/
+.idea/
+
+# Dependency directories
+# These are often used for caching dependencies
+# but may vary depending on your dependency management tool
+pip-wheel-metadata/
+data/
+sugriv/
+*.log
+!src/data/db/*
+.env
+

@@ -1,0 +1,47 @@
+{
+    "$schema": "https://www.krakend.io/schema/v2.5/krakend.json",
+    "version": 3,
+    "name": "application gateway",
+    "port": 8080,
+    "cache_ttl": "3600s",
+    "timeout": "3s",
+    "extra_config": {
+      "telemetry/logging": {
+        "level":  "DEBUG",
+        "prefix": "[KRAKEND]",
+        "syslog": false,
+        "stdout": true
+      },
+      "telemetry/metrics": {
+        "collection_time": "60s",
+        "proxy_disabled": false,
+        "router_disabled": false,
+        "backend_disabled": false,
+        "endpoint_disabled": false,
+        "listen_address": ":8090"
+      },
+      "security/cors": {
+        "allow_origins": [ "*" ],
+        "allow_methods": [ "POST", "GET" ],
+        "allow_headers": [ "Origin","Content-Type" ],
+        "expose_headers": [ "Content-Length","Content-Type" ],
+        "max_age": "12h"
+      }
+    },
+    "endpoints": [
+        {
+            "endpoint": "/v1",
+            "method": "POST",
+            "backend": [
+              {
+                "url_pattern": "/search",
+                "method": "POST",
+                "host": [
+                  "https://127.0.0.0:8000"
+                ]
+              }
+            ]
+        }
+    ]
+}
+

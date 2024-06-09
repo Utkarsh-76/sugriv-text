@@ -1,0 +1,314 @@
+[
+    {
+        "input": "Injection moulding uses a special-purpose machine that has three parts",
+        "output": ":"
+    },
+    {
+        "input": "moulding uses a special-purpose machine that has three parts :",
+        "output": "the"
+    },
+    {
+        "input": "uses a special-purpose machine that has three parts : the",
+        "output": "injection"
+    },
+    {
+        "input": "a special-purpose machine that has three parts : the injection",
+        "output": "unit"
+    },
+    {
+        "input": "special-purpose machine that has three parts : the injection unit",
+        "output": ","
+    },
+    {
+        "input": "machine that has three parts : the injection unit ,",
+        "output": "the"
+    },
+    {
+        "input": "that has three parts : the injection unit , the",
+        "output": "mould"
+    },
+    {
+        "input": "has three parts : the injection unit , the mould",
+        "output": "and"
+    },
+    {
+        "input": "three parts : the injection unit , the mould and",
+        "output": "the"
+    },
+    {
+        "input": "parts : the injection unit , the mould and the",
+        "output": "clamp"
+    },
+    {
+        "input": ": the injection unit , the mould and the clamp",
+        "output": "."
+    },
+    {
+        "input": "the injection unit , the mould and the clamp .",
+        "output": "Parts"
+    },
+    {
+        "input": "injection unit , the mould and the clamp . Parts",
+        "output": "to"
+    },
+    {
+        "input": "unit , the mould and the clamp . Parts to",
+        "output": "be"
+    },
+    {
+        "input": ", the mould and the clamp . Parts to be",
+        "output": "injection-moulded"
+    },
+    {
+        "input": "the mould and the clamp . Parts to be injection-moulded",
+        "output": "must"
+    },
+    {
+        "input": "mould and the clamp . Parts to be injection-moulded must",
+        "output": "be"
+    },
+    {
+        "input": "and the clamp . Parts to be injection-moulded must be",
+        "output": "very"
+    },
+    {
+        "input": "the clamp . Parts to be injection-moulded must be very",
+        "output": "carefully"
+    },
+    {
+        "input": "clamp . Parts to be injection-moulded must be very carefully",
+        "output": "designed"
+    },
+    {
+        "input": ". Parts to be injection-moulded must be very carefully designed",
+        "output": "to"
+    },
+    {
+        "input": "Parts to be injection-moulded must be very carefully designed to",
+        "output": "facilitate"
+    },
+    {
+        "input": "to be injection-moulded must be very carefully designed to facilitate",
+        "output": "the"
+    },
+    {
+        "input": "be injection-moulded must be very carefully designed to facilitate the",
+        "output": "moulding"
+    },
+    {
+        "input": "injection-moulded must be very carefully designed to facilitate the moulding",
+        "output": "process"
+    },
+    {
+        "input": "must be very carefully designed to facilitate the moulding process",
+        "output": ";"
+    },
+    {
+        "input": "be very carefully designed to facilitate the moulding process ;",
+        "output": "the"
+    },
+    {
+        "input": "very carefully designed to facilitate the moulding process ; the",
+        "output": "material"
+    },
+    {
+        "input": "carefully designed to facilitate the moulding process ; the material",
+        "output": "used"
+    },
+    {
+        "input": "designed to facilitate the moulding process ; the material used",
+        "output": "for"
+    },
+    {
+        "input": "to facilitate the moulding process ; the material used for",
+        "output": "the"
+    },
+    {
+        "input": "facilitate the moulding process ; the material used for the",
+        "output": "part"
+    },
+    {
+        "input": "the moulding process ; the material used for the part",
+        "output": ","
+    },
+    {
+        "input": "moulding process ; the material used for the part ,",
+        "output": "the"
+    },
+    {
+        "input": "process ; the material used for the part , the",
+        "output": "desired"
+    },
+    {
+        "input": "; the material used for the part , the desired",
+        "output": "shape"
+    },
+    {
+        "input": "the material used for the part , the desired shape",
+        "output": "and"
+    },
+    {
+        "input": "material used for the part , the desired shape and",
+        "output": "features"
+    },
+    {
+        "input": "used for the part , the desired shape and features",
+        "output": "of"
+    },
+    {
+        "input": "for the part , the desired shape and features of",
+        "output": "the"
+    },
+    {
+        "input": "the part , the desired shape and features of the",
+        "output": "part"
+    },
+    {
+        "input": "part , the desired shape and features of the part",
+        "output": ","
+    },
+    {
+        "input": ", the desired shape and features of the part ,",
+        "output": "the"
+    },
+    {
+        "input": "the desired shape and features of the part , the",
+        "output": "material"
+    },
+    {
+        "input": "desired shape and features of the part , the material",
+        "output": "of"
+    },
+    {
+        "input": "shape and features of the part , the material of",
+        "output": "the"
+    },
+    {
+        "input": "and features of the part , the material of the",
+        "output": "mould"
+    },
+    {
+        "input": "features of the part , the material of the mould",
+        "output": ","
+    },
+    {
+        "input": "of the part , the material of the mould ,",
+        "output": "and"
+    },
+    {
+        "input": "the part , the material of the mould , and",
+        "output": "the"
+    },
+    {
+        "input": "part , the material of the mould , and the",
+        "output": "properties"
+    },
+    {
+        "input": ", the material of the mould , and the properties",
+        "output": "of"
+    },
+    {
+        "input": "the material of the mould , and the properties of",
+        "output": "the"
+    },
+    {
+        "input": "material of the mould , and the properties of the",
+        "output": "moulding"
+    },
+    {
+        "input": "of the mould , and the properties of the moulding",
+        "output": "machine"
+    },
+    {
+        "input": "the mould , and the properties of the moulding machine",
+        "output": "must"
+    },
+    {
+        "input": "mould , and the properties of the moulding machine must",
+        "output": "all"
+    },
+    {
+        "input": ", and the properties of the moulding machine must all",
+        "output": "be"
+    },
+    {
+        "input": "and the properties of the moulding machine must all be",
+        "output": "taken"
+    },
+    {
+        "input": "the properties of the moulding machine must all be taken",
+        "output": "into"
+    },
+    {
+        "input": "properties of the moulding machine must all be taken into",
+        "output": "account"
+    },
+    {
+        "input": "of the moulding machine must all be taken into account",
+        "output": "."
+    },
+    {
+        "input": "the moulding machine must all be taken into account .",
+        "output": "The"
+    },
+    {
+        "input": "moulding machine must all be taken into account . The",
+        "output": "versatility"
+    },
+    {
+        "input": "machine must all be taken into account . The versatility",
+        "output": "of"
+    },
+    {
+        "input": "must all be taken into account . The versatility of",
+        "output": "injection"
+    },
+    {
+        "input": "all be taken into account . The versatility of injection",
+        "output": "moulding"
+    },
+    {
+        "input": "be taken into account . The versatility of injection moulding",
+        "output": "is"
+    },
+    {
+        "input": "taken into account . The versatility of injection moulding is",
+        "output": "facilitated"
+    },
+    {
+        "input": "into account . The versatility of injection moulding is facilitated",
+        "output": "by"
+    },
+    {
+        "input": "account . The versatility of injection moulding is facilitated by",
+        "output": "this"
+    },
+    {
+        "input": ". The versatility of injection moulding is facilitated by this",
+        "output": "breadth"
+    },
+    {
+        "input": "The versatility of injection moulding is facilitated by this breadth",
+        "output": "of"
+    },
+    {
+        "input": "versatility of injection moulding is facilitated by this breadth of",
+        "output": "design"
+    },
+    {
+        "input": "of injection moulding is facilitated by this breadth of design",
+        "output": "considerations"
+    },
+    {
+        "input": "injection moulding is facilitated by this breadth of design considerations",
+        "output": "and"
+    },
+    {
+        "input": "moulding is facilitated by this breadth of design considerations and",
+        "output": "possibilities"
+    },
+    {
+        "input": "is facilitated by this breadth of design considerations and possibilities",
+        "output": "."
+    }
+]

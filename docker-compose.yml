@@ -1,0 +1,126 @@
+version: "3.8"
+
+services:
+  sugriv:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sugriv
+    ports:
+      - "8000:8000"
+    restart: on-failure
+    networks:
+      - db_network
+    env_file:
+      - .env
+    depends_on:
+      - qdrant
+      - redis
+      - neo4j
+
+  redis:
+    image: redis/redis-stack-server:latest
+    container_name: redis
+    ports:
+      - '6379:6379'
+    networks:
+      - db_network
+    env_file:
+      - .env
+
+  qdrant:
+    container_name: qdrant
+    image: qdrant/qdrant:v1.7.3
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    restart: on-failure
+    networks:
+      - db_network
+    env_file:
+      - .env
+    volumes:
+      - ./data/qdrant_storage:/qdrant/storage
+
+  neo4j:
+    container_name: neo4j
+    image: neo4j:latest
+    networks:
+      - db_network
+    environment:
+      NEO4J_AUTH: none
+    ports:
+      - '7474:7474'
+      - '7473:7473'
+      - '7687:7687'
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.3.2
+    hostname: zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_SERVER_ID: 1
+      ZOOKEEPER_SERVERS: zookeeper:2888:3888
+    networks:
+      - app_network
+
+  kafka:
+    image: confluentinc/cp-kafka:7.3.2
+    hostname: kafka
+    container_name: kafka
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+      - "9999:9999"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:19092,EXTERNAL://${DOCKER_HOST_IP:-127.0.0.1}:9092,DOCKER://host.docker.internal:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,DOCKER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
+      KAFKA_BROKER_ID: 1
+      KAFKA_LOG4J_LOGGERS: "kafka.controller=INFO,kafka.producer.async.DefaultEventHandler=INFO,state.change.logger=INFO"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_JMX_PORT: 9999
+      KAFKA_JMX_HOSTNAME: ${DOCKER_HOST_IP:-127.0.0.1}
+      KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
+      KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
+    depends_on:
+      - zookeeper
+    networks:
+      - app_network
+
+  krakend:
+    image: devopsfaith/krakend:watch
+    hostname: krakend
+    container_name: krakend
+    volumes:
+      - ./gateway/krakend.json:/etc/krakend/krakend.json
+    ports:
+      - "1234:1234"
+      - "9000:8080"
+      - "8090:8090"
+    command: ["run", "-d", "-c", "/etc/krakend/krakend.json"]
+    depends_on:
+      - jaeger
+    networks:
+      - app_network
+
+  jaeger:
+    image: jaegertracing/all-in-one:1
+    container_name: jaeger
+    ports:
+      - "16686:16686"
+      - "14268:14268"
+    networks:
+      - app_network
+
+networks:
+  db_network:
+    driver: bridge
+  app_network:
+    driver: bridge
