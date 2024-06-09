@@ -37,7 +37,8 @@ Monkey mind provides a higher level of abstraction than the SDK enabling robot f
 
 # Contributors
 
-** To Contribute send an email to below address **
+##### To Contribute send an email to below address
+
 project email: monkeypatched-iot@proton.me
 
 Prashun Javeri, CTO Monkeypatched
