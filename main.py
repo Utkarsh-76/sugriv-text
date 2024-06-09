@@ -47,8 +47,7 @@ KafKaTopics({'bootstrap.servers': KAFKA_SERVER})
 producer_conf = {'bootstrap.servers': KAFKA_SERVER,'client.id': socket.gethostname()}
 producer = confluent_kafka.Producer(producer_conf)
 
-
-if quadrant.check_collection_exists("prompts") == False:
+if quadrant.check_collection_exists("prompts") != False:
     quadrant.create_collection("prompts")
 
 # create the nodes

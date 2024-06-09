@@ -12,17 +12,28 @@ Monkeymind is a Software Defined Automation platform to enable expert systems us
 
 Automation involves the use of technology to perform tasks or processes with minimal human intervention. This can include the automation of repetitive tasks, workflows, or even complex business processes.
 
-Monkey Mind provides a higher level of abstraction than the SDK enabling robot fleets to communicate with each other and its environment when planning missions or scheduling and executing tasks and provides tools, libraries and APIs that enable 
+Monkey mind provides a higher level of abstraction than the SDK enabling robot fleets to communicate with each other and its environment when planning missions or scheduling and executing tasks and provides tools, libraries and APIs that enable the next generation of robots
 
+# Features
+
+## Current
+
+1. Graph RAG
+2. Customizable Small Language Model
+3. Agentic components, including routing, memory and tool use
+4. Distributed Data pipeline for pretraining
+5. Easy Deployment using docker compose 
+6. Lifecycle APIs and scripts for pretraing and finetuning 
+7. RAFT Capabilities
+8. Guardrails integration
+
+## Roadmap
+ * Agentic reasoning including sequential (like Chain of Thought), DAG-based, and tree-based (like Tree of Thought)
+ * And we briefly cover further enterprise extensions including observability, controllability and customizability
+   
 # LLM Agents For Robotics With Batteries Included
 
 ![image](https://github.com/monkeypatched-iot/sugriv-text/assets/128947637/9769dcb0-72e4-4a80-9ecc-21a2b26e2486)
-
-# Core Commiters and Maintainers
-project email: monkeypatched-iot@proton.me
-1. Prashun Javeri, CTO Monkeypatched 
-2. Jatin Jadhav, Senior Software Engineer ML/AI Monkeypatched 
-3. Pooja Gandhi, Senior Software Engineer ML/AI Monkeypatched 
 
 # How to Contribute
 
@@ -35,3 +46,4 @@ We are thrilled that you are interested in contributing to our project! Your con
 * Improving Documentation
 * Style Guides
 * Code of Conduct
+* [JIRA Board](https://monkeypatched.atlassian.net/jira/software/projects/ST/boards/3?atlOrigin=eyJpIjoiYzI2OGUwN2MwY2I2NDY2YjhhM2EyMGVlMTAzYzFhNWMiLCJwIjoiaiJ9)
