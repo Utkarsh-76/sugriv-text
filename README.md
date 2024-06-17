@@ -43,9 +43,9 @@ project email: monkeypatched-iot@proton.me
 
 Prashun Javeri, CTO Monkeypatched
 
-Jatin Jadhav, Senior Software Engineer ML/AI 
+Jatin Jadhav,  Software Engineer ML/AI 
 
-Pooja Gandhi, Senior Software Engineer ML/AI Monkeypatched
+Pooja Gandhi, Software Engineer ML/AI Monkeypatched
 
 
 # How to Contribute
