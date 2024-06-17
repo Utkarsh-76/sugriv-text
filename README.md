@@ -45,7 +45,7 @@ Prashun Javeri, CTO Monkeypatched
 
 Jatin Jadhav,  Software Engineer ML/AI 
 
-Pooja Gandhi, Software Engineer ML/AI Monkeypatched
+Pooja Gandhi, Software Engineer ML/AI
 
 
 # How to Contribute
