@@ -17,10 +17,12 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 from src.api.controller.llm import generate_top_k_results
 from src.api.vo.llm_request import LLMRequest, PretrainRequest
+from src.api.vo.create_node_request import CreateNodeRequest
 from bin.create_data import create,write
 from bin.fine_tune import Finetuner
 from dotenv import load_dotenv
 from llama_index.embeddings.openai import OpenAIEmbedding
+from consts import node_mapping
 
 # Load environment variables from .env file
 load_dotenv()
@@ -240,6 +242,21 @@ async def search(request:LLMRequest):
         return generate_top_k_results(request)
     except RuntimeError as e:
         logger.error('error getting top k completions')
+        logger.error(e)
+
+
+# add node to the graph
+@app.post("/create_node")
+async def create_node(request: CreateNodeRequest):
+    ''' create a node in the Database'''
+    try:
+        logger.info(f"Creating Node")
+
+        graph.create_node(node_mapping[request['node_type']])
+
+        return JSONResponse(content={"message": "node_created"}, status_code=200)
+    except Exception as e:
+        logger.error(f'can not index file {request.prompt}')
         logger.error(e)
 
 if __name__ == "__main__":
