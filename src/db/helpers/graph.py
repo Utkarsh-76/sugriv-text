@@ -73,7 +73,7 @@ class GraphDB():
             self.session.close()
             return node
         except RuntimeError as e:
-            logger.error(f'adding data to node')
+            logger.error(f'cannot add data to node {self.node.name}')
             logger.error(e)
     
     def get(self,node:StructuredNode):
@@ -84,5 +84,5 @@ class GraphDB():
             self.session.close()
             return all_nodes
         except RuntimeError as e:
-            logger.error(f'getting data from from node')
+            logger.error(f'cannot get data from node {self.node.name}')
             logger.error(e)

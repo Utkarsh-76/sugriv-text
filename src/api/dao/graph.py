@@ -65,3 +65,7 @@ class Topic(StructuredNode):
     description = StringProperty(unique_index=True)
     subject = graph.create_relationship_to(Subject,'HAS_A')
 
+class Generic(StructuredNode):
+    uid = UniqueIdProperty()
+    name = StringProperty(unique_index=True, required=True)
+    description = StringProperty(unique_index=True)

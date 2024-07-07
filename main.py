@@ -252,11 +252,32 @@ async def create_node(request: CreateNodeRequest):
     try:
         logger.info(f"Creating Node")
 
-        graph.create_node(node_mapping[request['node_type']])
+        new_node_type = node_mapping[request['node_type']]
 
-        return JSONResponse(content={"message": "node_created"}, status_code=200)
+        graph.create_node(new_node_type)
+        new_node = graph.add(new_node_type(name=request['node_name'], description=request['node_description']))
+
+        if request['set_relationship']:
+            current_node_type = node_mapping[request['current_node_type']]
+            current_node = current_node_type.nodes.get(name=request["current_node_name"])
+            if request['node_type'] == 'subject':
+                current_node.subject.connect(new_node)
+            elif request['node_type'] == 'process':
+                current_node.process.connect(new_node)
+            elif request['node_type'] == 'subprocess':
+                current_node.subprocess.connect(new_node)
+            elif request['node_type'] == 'documents':
+                current_node.documents.connect(new_node)
+            elif request['node_type'] == 'machines':
+                current_node.machines.connect(new_node)
+            elif request['node_type'] == 'document_chunks':
+                current_node.document_chunks.connect(new_node)
+            else:
+                raise Exception("node type not acceptable")
+
+        return JSONResponse(content={"message": "node created"}, status_code=200)
     except Exception as e:
-        logger.error(f'can not index file {request.prompt}')
+        logger.error(f'can not add node')
         logger.error(e)
 
 if __name__ == "__main__":
